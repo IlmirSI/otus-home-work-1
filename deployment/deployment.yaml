@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: otus-home-work-1
+  namespace: otus
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: otus-home-work-1-app
@@ -14,8 +15,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-        - name: otus-home-work-1
-          image: ilmirsadykov/otus-home-work-1:1.0.0
-          imagePullPolicy: IfNotPresent
+        - name: otus-home-work-1-app
+          image: ilmirsadykov/otus-home-work-1
           ports:
             - containerPort: 8000
